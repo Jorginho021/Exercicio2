@@ -1,31 +1,82 @@
-package exercicio.pkg4;
+package exercici4;
 
 import java.util.Scanner;
 
-public class Exercicio4 {
+public class Exercici4 {
 
+    
     public static void main(String[] args) {
-  
+        
+       Scanner sc = new Scanner(System.in);
 
-        Scanner scanner = new Scanner(System.in);
+        // Criar objeto Palavra
+        Palavra palavra = new Palavra();
 
-        // Solicita que o usuário digite uma palavra
+        // Solicitar ao usuário que digite uma palavra
         System.out.print("Digite uma palavra: ");
-        String palavra = scanner.nextLine();
+        String entrada = sc.nextLine();
 
-        // Remove espaços e converte para minúsculas
-        String palavraFormatada = palavra.replaceAll("\\s+", "").toLowerCase();
+        // Definir a palavra usando o setter
+        palavra.setTexto(entrada);
 
-        // Inverte a palavra formatada
-        String palavraInvertida = new StringBuilder(palavraFormatada).reverse().toString();
+        // Verificar se é palíndromo
+        boolean resultado = palavra.isPalindromo();
 
-        // Verifica se é um palíndromo
-        if (palavraFormatada.equals(palavraInvertida)) {
-            System.out.println("A palavra \"" + palavra + "\" É um palíndromo!");
+        // Exibir o resultado
+        if (resultado) {
+            System.out.println("A palavra \"" + palavra.getTexto() + "\" é um palíndromo!");
         } else {
-            System.out.println("A palavra \"" + palavra + "\" NÃO é um palíndromo.");
+            System.out.println("A palavra \"" + palavra.getTexto() + "\" não é um palíndromo.");
         }
 
-        scanner.close();
+        sc.close();
+    }
+}
+//Classe Palavra
+package exercici4;
+
+public class Palavra {
+    
+ // Atributo privado
+    private String texto;
+
+    // Construtor
+    public Palavra() {
+    }
+
+    public Palavra(String texto) {
+        this.texto = texto;
+    }
+
+    // Getter
+    public String getTexto() {
+        return texto;
+    }
+
+    // Setter
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    // Método para verificar se é palíndromo
+    public boolean isPalindromo() {
+        if (texto == null) {
+            return false;
+        }
+
+        // Normalizar a palavra: remover espaços e deixar minúscula
+        String palavraNormalizada = texto.replaceAll("\\s+", "").toLowerCase();
+
+        int esquerda = 0;
+        int direita = palavraNormalizada.length() - 1;
+
+        while (esquerda < direita) {
+            if (palavraNormalizada.charAt(esquerda) != palavraNormalizada.charAt(direita)) {
+                return false; // Não é palíndromo
+            }
+            esquerda++;
+            direita--;
+        }
+        return true; // É palíndromo
     }
 }
