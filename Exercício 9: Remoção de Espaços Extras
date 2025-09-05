@@ -1,1 +1,70 @@
 
+package exercici9;
+
+import java.util.Scanner;
+
+
+public class Exercici9 {
+
+    public static void main(String[] args) {
+     
+        Scanner sc = new Scanner(System.in);
+
+             
+        // Criar objeto Frase
+        Frase frase = new Frase();
+
+        // Solicitar ao usuário que digite uma frase
+        System.out.print("Digite uma frase com espaços extras: ");
+        String entrada = sc.nextLine();
+
+        // Definir a frase usando o setter
+        frase.setTexto(entrada);
+
+        // Remover espaços extras usando o método da classe
+        String fraseFormatada = frase.removerEspacosExtras();
+
+        // Exibir o resultado
+        System.out.println("Frase formatada: " + fraseFormatada);
+
+        sc.close();
+    }
+    
+}
+//Classe Frase
+package exercici9;
+
+
+public class Frase {
+      // Atributo privado
+    private String texto;
+
+    // Construtor
+    public Frase() {
+    }
+
+    public Frase(String texto) {
+        this.texto = texto;
+    }
+
+    // Getter
+    public String getTexto() {
+        return texto;
+    }
+
+    // Setter
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    // Método para remover espaços extras
+    public String removerEspacosExtras() {
+        if (texto == null || texto.trim().isEmpty()) {
+            return "";
+        }
+
+        // Remove espaços no início/fim e substitui múltiplos espaços por um único
+        return texto.trim().replaceAll("\\s+", " ");
+ }
+}
+
