@@ -1,0 +1,22 @@
+package exercicio.pkg2;
+
+import java.util.Scanner;
+
+public class Exercicio2 {
+
+    public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+        // Solicita que o usuário digite uma frase
+        System.out.print("Digite uma frase: ");
+        String frase = scanner.nextLine();
+
+        // Substitui todas as ocorrências de 'a' por '*'
+        String fraseModificada = frase.replace('a', '*').replace('A', '*');
+
+        // Exibe a frase modificada
+        System.out.println("Frase modificada: " + fraseModificada);
+
+        scanner.close();
+    }
+}
