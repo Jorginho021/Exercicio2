@@ -1,0 +1,31 @@
+package exercicio.pkg4;
+
+import java.util.Scanner;
+
+public class Exercicio4 {
+
+    public static void main(String[] args) {
+  
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita que o usuário digite uma palavra
+        System.out.print("Digite uma palavra: ");
+        String palavra = scanner.nextLine();
+
+        // Remove espaços e converte para minúsculas
+        String palavraFormatada = palavra.replaceAll("\\s+", "").toLowerCase();
+
+        // Inverte a palavra formatada
+        String palavraInvertida = new StringBuilder(palavraFormatada).reverse().toString();
+
+        // Verifica se é um palíndromo
+        if (palavraFormatada.equals(palavraInvertida)) {
+            System.out.println("A palavra \"" + palavra + "\" É um palíndromo!");
+        } else {
+            System.out.println("A palavra \"" + palavra + "\" NÃO é um palíndromo.");
+        }
+
+        scanner.close();
+    }
+}
