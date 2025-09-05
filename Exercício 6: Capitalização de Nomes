@@ -1,36 +1,78 @@
-package exercicio06;
+    package exercici6;
 
 import java.util.Scanner;
 
-public class Exercicio06 {
+public class Exercici6 {
 
     public static void main(String[] args) {
-      
-      Scanner scanner = new Scanner(System.in);
+          Scanner sc = new Scanner(System.in);
 
-        // Solicita o nome completo do usuário
+        // Criar objeto Nome
+        Nome nome = new Nome();
+
+        // Solicitar ao usuário que digite o nome completo
         System.out.print("Digite seu nome completo: ");
-        String nomeCompleto = scanner.nextLine().trim();
+        String entrada = sc.nextLine();
 
-        // Divide o nome em partes, separando pelos espaços
-        String[] partes = nomeCompleto.split("\\s+");
+        // Definir o nome usando o setter
+        nome.setTexto(entrada);
 
-        // StringBuilder para armazenar o nome formatado
-        StringBuilder nomeFormatado = new StringBuilder();
+        // Capitalizar usando o método da classe
+        String nomeFormatado = nome.capitalizar();
 
-        // Percorre cada palavra do nome e capitaliza a primeira letra
-        for (String palavra : partes) {
-            if (!palavra.isEmpty()) {
-                // Primeira letra maiúscula + restante minúsculo
-                nomeFormatado.append(Character.toUpperCase(palavra.charAt(0)))
-                             .append(palavra.substring(1).toLowerCase())
-                             .append(" ");
+        // Exibir o resultado
+        System.out.println("Nome formatado: " + nomeFormatado);
+
+        sc.close();
+    }
+    
+}
+
+//Classe Nome
+
+package exercici6;
+
+
+public class Nome {
+          // Atributo privado
+    private String texto;
+
+    // Construtor
+    public Nome() {
+    }
+
+    public Nome(String texto) {
+        this.texto = texto;
+    }
+
+    // Getter
+    public String getTexto() {
+        return texto;
+    }
+
+    // Setter
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    // Método para capitalizar a primeira letra de cada palavra
+    public String capitalizar() {
+        if (texto == null || texto.trim().isEmpty()) {
+            return "";
+        }
+
+        String[] palavras = texto.trim().toLowerCase().split("\\s+");
+        StringBuilder nomeCapitalizado = new StringBuilder();
+
+        for (String palavra : palavras) {
+            if (palavra.length() > 0) {
+                nomeCapitalizado.append(Character.toUpperCase(palavra.charAt(0)))
+                                .append(palavra.substring(1))
+                                .append(" ");
             }
         }
 
-        // Exibe o nome formatado
-        System.out.println("Nome formatado: " + nomeFormatado.toString().trim());
-
-        scanner.close();
+        return nomeCapitalizado.toString().trim();
     }
 }
+
