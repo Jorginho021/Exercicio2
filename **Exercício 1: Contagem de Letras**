@@ -6,20 +6,60 @@ public class Exercicio1 {
 
   
     public static void main(String[] args) {
-        
-              Scanner scanner = new Scanner(System.in);
+           Scanner sc = new Scanner(System.in);
 
-        // Solicita que o usuário digite uma palavra
+        // Criar objeto Palavra
+        Palavra palavra = new Palavra();
+
+        // Solicitar ao usuário que digite uma palavra
         System.out.print("Digite uma palavra: ");
-        String palavra = scanner.nextLine();
+        String entrada = sc.nextLine();
 
-        // Remove espaços extras e conta as letras
-        int quantidadeLetras = palavra.replace(" ", "").length();
+        // Definir a palavra usando o setter
+        palavra.setTexto(entrada);
 
-        // Exibe o resultado
-        System.out.println("A palavra \"" + palavra + "\" possui " + quantidadeLetras + " letras.");
+        // Contar letras usando o método da classe
+        int quantidadeLetras = palavra.contarLetras();
 
-        scanner.close();
+        // Exibir o resultado
+        System.out.println("A palavra \"" + palavra.getTexto() + "\" possui " + quantidadeLetras + " letras.");
+
+        sc.close();
     }
 }
-    
+  //Classe Palavra
+
+package exercicio.pkg1;
+
+public class Palavra {
+       // Atributo privado
+    private String texto;
+
+    // Construtor
+    public Palavra() {
+    }
+
+    public Palavra(String texto) {
+        this.texto = texto;
+    }
+
+    // Getter
+    public String getTexto() {
+        return texto;
+    }
+
+    // Setter
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    // Método para contar letras
+    public int contarLetras() {
+        if (texto != null) {
+            return texto.length();
+        } else {
+            return 0;
+        }
+    }
+}
+
