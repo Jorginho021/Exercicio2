@@ -1,0 +1,25 @@
+package exercicio.pkg1;
+
+import java.util.Scanner;
+
+public class Exercicio1 {
+
+  
+    public static void main(String[] args) {
+        
+              Scanner scanner = new Scanner(System.in);
+
+        // Solicita que o usuário digite uma palavra
+        System.out.print("Digite uma palavra: ");
+        String palavra = scanner.nextLine();
+
+        // Remove espaços extras e conta as letras
+        int quantidadeLetras = palavra.replace(" ", "").length();
+
+        // Exibe o resultado
+        System.out.println("A palavra \"" + palavra + "\" possui " + quantidadeLetras + " letras.");
+
+        scanner.close();
+    }
+}
+    
