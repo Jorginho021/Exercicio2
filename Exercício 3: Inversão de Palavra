@@ -1,12 +1,12 @@
-package exercicio.pkg3;
+package exercici3;
 
 import java.util.Scanner;
 
-public class Exercicio3 {
+public class Exercici3 {
 
     public static void main(String[] args) {
-    
-             Scanner scanner = new Scanner(System.in);
+        
+           Scanner scanner = new Scanner(System.in);
 
         // Solicita que o usuário digite uma palavra
         System.out.print("Digite uma palavra: ");
@@ -22,3 +22,43 @@ public class Exercicio3 {
     }
 }
     
+//classe Palavra
+package exercici3;
+
+
+public class Palvra {
+    
+// Atributo privado
+    private String texto;
+
+    // Construtor
+    public Palvra() {
+    }
+
+    public Palvra(String texto) {
+        this.texto = texto;
+    }
+
+    // Getter
+    public String getTexto() {
+        return texto;
+    }
+
+    // Setter
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    // Método para inverter a palavra
+    public String inverter() {
+        if (texto != null) {
+            String invertida = "";
+            for (int i = texto.length() - 1; i >= 0; i--) {
+                invertida += texto.charAt(i);
+            }
+            return invertida;
+        } else {
+            return "";
+        }
+    }
+}
