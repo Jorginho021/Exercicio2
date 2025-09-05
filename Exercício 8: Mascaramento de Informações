@@ -1,1 +1,76 @@
+package exercici8;
 
+import java.util.Scanner;
+
+public class Exercici8 {
+
+    public static void main(String[] args) {
+      
+        
+    Scanner sc = new Scanner(System.in);
+
+        // Criar objeto Cartao
+        Cartao cartao = new Cartao();
+
+        // Solicitar ao usuário que digite o número do cartão
+        System.out.print("Digite o número do cartão de crédito: ");
+        String entrada = sc.nextLine();
+
+        // Definir o número usando o setter
+        cartao.setNumero(entrada);
+
+        // Mascarar o cartão usando o método da classe
+        String cartaoMascarado = cartao.mascarar();
+
+        // Exibir o resultado
+        System.out.println("Cartão mascarado: " + cartaoMascarado);
+
+        sc.close();
+    }
+}
+
+//Classe cartao
+package exercici8;
+
+public class Cartao {
+    
+   // Atributo privado
+    private String numero;
+
+    // Construtor vazio
+    public Cartao() {
+    }
+
+    // Construtor com parâmetro
+    public Cartao(String numero) {
+        this.numero = numero;
+    }
+
+    // Getter
+    public String getNumero() {
+        return numero;
+    }
+
+    // Setter
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    // Método para mascarar o cartão
+    public String mascarar() {
+        if (numero == null || numero.length() < 4) {
+            return "Número inválido";
+        }
+
+        int tamanho = numero.length();
+        String ultimosQuatro = numero.substring(tamanho - 4);
+
+        // Gerar asteriscos manualmente (compatível com Java 8)
+        StringBuilder asteriscos = new StringBuilder();
+        for (int i = 0; i < tamanho - 4; i++) {
+            asteriscos.append("*");
+        }
+
+        return asteriscos.toString() + ultimosQuatro;
+    }
+}
