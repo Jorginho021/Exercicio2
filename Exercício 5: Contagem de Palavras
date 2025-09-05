@@ -1,28 +1,72 @@
-package exercicio5;
+package exercici5;
 
 import java.util.Scanner;
 
-public class Exercicio5 {
 
+public class Exercici5 {
+
+    
     public static void main(String[] args) {
-        
-        Scanner scanner = new Scanner(System.in);
+     
+        Scanner sc = new Scanner(System.in);
 
-        // Solicita que o usuário digite uma frase
+        // Criar objeto Frase
+        Frase frase = new Frase();
+
+        // Solicitar ao usuário que digite uma frase
         System.out.print("Digite uma frase: ");
-        String frase = scanner.nextLine().trim();
+        String entrada = sc.nextLine();
 
-        // Verifica se a frase está vazia
-        if (frase.isEmpty()) {
-            System.out.println("Você não digitou nenhuma palavra.");
-        } else {
-            // Divide a frase em palavras usando os espaços como separadores
-            String[] palavras = frase.split("\\s+");
+        // Definir a frase usando o setter
+        frase.setTexto(entrada);
 
-            // Exibe o resultado
-            System.out.println("A frase possui " + palavras.length + " palavra(s).");
+        // Contar palavras usando o método da classe
+        int quantidadePalavras = frase.contarPalavras();
+
+        // Exibir o resultado
+        System.out.println("A frase possui " + quantidadePalavras + " palavra(s).");
+
+        sc.close();
+    }
+    
+}
+
+//Classe Frase
+package exercici5;
+
+
+public class Frase {
+        // Atributo privado
+    private String texto;
+
+    // Construtor
+    public Frase() {
+    }
+
+    public Frase(String texto) {
+        this.texto = texto;
+    }
+
+    // Getter
+    public String getTexto() {
+        return texto;
+    }
+
+    // Setter
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    // Método para contar palavras
+    public int contarPalavras() {
+        if (texto == null || texto.trim().isEmpty()) {
+            return 0;
         }
 
-        scanner.close();
+        // Dividir a frase pelos espaços em branco
+        String[] palavras = texto.trim().split("\\s+");
+        return palavras.length;
     }
 }
+
+
