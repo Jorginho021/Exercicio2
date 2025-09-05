@@ -1,0 +1,24 @@
+package exercicio.pkg3;
+
+import java.util.Scanner;
+
+public class Exercicio3 {
+
+    public static void main(String[] args) {
+    
+             Scanner scanner = new Scanner(System.in);
+
+        // Solicita que o usuário digite uma palavra
+        System.out.print("Digite uma palavra: ");
+        String palavra = scanner.nextLine();
+
+        // Inverte a palavra usando StringBuilder
+        String palavraInvertida = new StringBuilder(palavra).reverse().toString();
+
+        // Exibe o resultado
+        System.out.println("Palavra invertida: " + palavraInvertida);
+
+        scanner.close();
+    }
+}
+    
