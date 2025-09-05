@@ -1,1 +1,75 @@
 
+package exercici7;
+
+import java.util.Scanner;
+
+public class Exercici7 {
+
+    public static void main(String[] args) {
+        
+             Scanner sc = new Scanner(System.in);
+
+        // Criar objeto Email
+        Email email = new Email();
+
+        // Solicitar ao usuário que digite o email
+        System.out.print("Digite seu email: ");
+        String entrada = sc.nextLine();
+
+        // Definir o email usando o setter
+        email.setEndereco(entrada);
+
+        // Extrair domínio usando o método da classe
+        String dominio = email.extrairDominio();
+
+        // Exibir o resultado
+        System.out.println("Domínio do email: " + dominio);
+
+        sc.close();
+    }
+    
+}
+
+//Classe Email
+
+package exercici7;
+
+
+public class Email {
+     // Atributo privado
+    private String endereco;
+
+    // Construtor
+    public Email() {
+    }
+
+    public Email(String endereco) {
+        this.endereco = endereco;
+    }
+
+    // Getter
+    public String getEndereco() {
+        return endereco;
+    }
+
+    // Setter
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    // Método para extrair domínio
+    public String extrairDominio() {
+        if (endereco == null || !endereco.contains("@")) {
+            return "Email inválido";
+        }
+
+        // Pega a parte após o '@'
+        String[] partes = endereco.split("@");
+        if (partes.length > 1) {
+            return partes[1];
+        } else {
+            return "Email inválido";
+        }
+    }
+}
+
