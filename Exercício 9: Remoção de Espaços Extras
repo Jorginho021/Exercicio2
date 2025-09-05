@@ -1,0 +1,24 @@
+package exercicio.pkg9;
+
+import java.util.Scanner;
+
+
+public class Exercicio9 {
+
+    public static void main(String[] args) {
+        
+   Scanner scanner = new Scanner(System.in);
+
+        // Solicita ao usuário que digite uma frase
+        System.out.print("Digite uma frase com espaços extras: ");
+        String frase = scanner.nextLine();
+
+        // Remove espaços extras do início e do fim e substitui múltiplos espaços por um único
+        String fraseFormatada = frase.trim().replaceAll("\\s+", " ");
+
+        // Exibe a frase formatada
+        System.out.println("Frase formatada: " + fraseFormatada);
+
+        scanner.close();
+    }
+}
